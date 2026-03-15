@@ -80,8 +80,8 @@ Add one  local.settings.json
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
 
-    "AOAI_ENDPOINT": "https://developer-evals-foundry.cognitiveservices.azure.com/",
-    "AOAI_DEPLOYMENT": "Naveen_Bisht",
+    "AOAI_ENDPOINT": "https://developer-***-foundry.*****.azure.com/",
+    "AOAI_DEPLOYMENT": "****************************",
     "AOAI_API_KEY": "****",
     "REDIS_CONNECTION": " **********"
   }

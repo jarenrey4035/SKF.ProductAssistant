@@ -72,12 +72,20 @@ POST http://localhost:7071/api/AskProduct
 
 <div class="section box">
 <h2>Required Environment Variables</h2>
+Add one  local.settings.json
 <pre>
-AOAI_ENDPOINT
-AOAI_DEPLOYMENT
-AOAI_API_KEY
-REDIS_CONNECTION
-USE_REDIS=true
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+
+    "AOAI_ENDPOINT": "https://developer-evals-foundry.cognitiveservices.azure.com/",
+    "AOAI_DEPLOYMENT": "Naveen_Bisht",
+    "AOAI_API_KEY": "****",
+    "REDIS_CONNECTION": " **********"
+  }
+}
 </pre>
 </div>
 

